@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form method="POST" action="/outcomes" align="center">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          <h3 class="text-primary text-center">Entered movie review opinion prediction: </h3>
+          <div class="text-danger">
+            <h3>Your Review: </h3>
+            " {{ content }} "
+          </div>
+          <div class="text-success">
+            <h3>Opinion Prediction: </h4>
+            {{ prediction}}
+          </div>
+          <div class="text-info">
+            <h3> Probability: </h4>
+            {{ probability }}%
+          </div>
+        </div>
+      
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock %}
