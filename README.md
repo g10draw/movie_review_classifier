@@ -1,7 +1,7 @@
 # Movie Review Classifier
-This model classifies the movie reviews entered by the audiens into positive or negative opinions.
-## Install
+This model classifies the movie reviews entered by the audience into positive or negative opinions.
 
+## Install
 This project requires **Python 2.7** and the following Python libraries installed:
 
 - [NumPy](http://www.numpy.org/)
