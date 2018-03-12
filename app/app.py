@@ -1,20 +1,17 @@
 # Import required libraries
-from flask import Flask, render_template, request
-from wtforms.form import Form
-from wtforms import TextAreaField, validators
-from wtforms.validators import DataRequired, Length
-from forms import ReviewForm
 import os
 import pickle
+
+from flask import Flask, render_template, request
 import numpy as np
 
-# Load the vectorizer script file
+from forms import ReviewForm
 from vectorizer import vect
 
 
 app = Flask(__name__)
 app.config.update(dict(
-    SECRET_KEY="powerful secretkey",
+    SECRET_KEY="|||||SECRET||KEY||||||||",
     WTF_CSRF_SECRET_KEY="a csrf secret key"
 ))
 
@@ -24,6 +21,7 @@ clf = pickle.load(open(os.path.join(current_dir,
                                     'pkl_objects/classifier.pkl'), 'rb'))
 
 def classify(file):
+	""" Classifies the review and returns a opinion and probability """
 	label = {0:'negative',
 	         1:'positive'}
 	X = vect.transform([file])
@@ -37,6 +35,7 @@ def train(file, y):
 
 @app.route('/')
 def index():
+	
 	form = ReviewForm()
 	return render_template('index.html', form=form)
 
